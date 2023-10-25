@@ -28,18 +28,22 @@ jobs:
       run: composer duskbench key:generate
     - name: Prepare duskbench
       run: composer duskbench:prepare
+#    - name: Directory Permissions
+#      run: chmod -R 777 storage bootstrap/cache
     - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
+      run: chmod -R 777 ./vendor/orchestra/testbench-core/laravel/storage ./vendor/orchestra/testbench-core/laravel/bootstrap/cache
     - name: Create Database
       run: |
         mkdir -p database
+        touch ./database/database.sqlite
+    - name: Create Test Database
+      run: |
         touch ./vendor/orchestra/testbench-core/laravel/database/database.sqlite
-    - name: Create Database
+    - name: Create Dusk Database
       run: |
-        mkdir -p database
         touch ./vendor/orchestra/testbench-dusk/laravel/database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/pest --verbose --colors=always -p
+      run: ./vendor/bin/pest
