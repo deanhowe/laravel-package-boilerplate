@@ -1,5 +1,7 @@
 # laravel-package-boilerplate
 
+![laravel workflow](https://github.com/deanhowe/laravel-package-boilerplate/actions/workflows/laravel/badge.svg)
+
 > [!WARNING]
 > This is not quite ready for general consumption - use at your own risk 🤨
 
