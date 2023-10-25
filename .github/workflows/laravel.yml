@@ -1,4 +1,4 @@
-name: Laravel
+name: Laravel Pest Tests
 
 on:
   push:
