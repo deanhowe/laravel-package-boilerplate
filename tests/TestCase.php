@@ -11,4 +11,6 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
     use MockeryPHPUnitIntegration;
+
+    public $mockConsoleOutput = false;
 }

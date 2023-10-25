@@ -12,5 +12,5 @@ abstract class BrowserKitTestCase extends BaseTestCase
     use CreatesApplication;
     use MockeryPHPUnitIntegration;
 
-    public $baseUrl = 'http://localhost';
+    public $baseUrl = 'http://localhost:8000';
 }

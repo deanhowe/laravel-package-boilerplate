@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Exception;
 use Hash;
 
 trait CreatesApplication
 {
-    public function setUp()
+    /**
+     * @throws Exception
+     */
+    protected function setUp(): void
     {
         parent::setUp();
         $this->artisan('migrate', ['--database' => 'sqlite']);
         $this->loadLaravelMigrations(['--database' => 'sqlite']);
-        $this->withFactories(__DIR__ . '/factories');
+        $this->withFactories(__DIR__.'/factories');
     }
 
     /**
@@ -23,7 +27,7 @@ trait CreatesApplication
      *
      * @return \Illuminate\Foundation\Application
      */
-    public function createApplication()
+    public function createApplication(): \Illuminate\Foundation\Application
     {
         $app = parent::createApplication();
 
@@ -32,15 +36,15 @@ trait CreatesApplication
         return $app;
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
-        return ['Package\ServiceProvider'];
+        return ['Package\Providers\ServiceProvider'];
     }
 
-    protected function getPackageAliases($app)
+    protected function getPackageAliases($app): array
     {
         return [
-            'Facade' => 'Package\Facade',
+            // 'Facade' => 'Package\Facade',
         ];
     }
 }

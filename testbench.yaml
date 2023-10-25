@@ -1,0 +1,43 @@
+#laravel: ./skeleton
+providers: [
+  Workbench\App\Providers\PackageNameServiceProvider,
+]
+
+migrations:
+  - workbench/database/migrations
+
+seeders:
+  - Workbench\Database\Seeders\DatabaseSeeder
+dont-discover:
+  - barryvdh/laravel-ide-helper
+  - laravel/dusk
+  - laravel/horizon
+  - laravel/tinker
+  - nesbot/carbon
+  - nunomaduro/termwind
+  - spatie/laravel-ignition
+#bootstrappers: []
+env:
+  - SEND_QUERIES_TO_RAY=(true)
+purge:
+  directories:
+    - public/vendor/*
+  files:
+    - lang/*.json
+    - config/package.php
+workbench:
+  welcome: true
+  install: true
+  start: '/'
+  user: taylor@laravel.com
+  guard: web
+  #sync:
+  #  - from: ./public/
+  #    to: public/vendor/nova
+  build: [ ]
+  assets: [ ]
+  discovers:
+    web: true
+    api: false
+    commands: true
+

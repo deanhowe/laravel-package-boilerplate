@@ -1,29 +1,111 @@
 {
-    "name": "matthewbdaly/laravel-package-boilerplate",
-    "description": "Starting boilerplate for Laravel packages. Override the content in here when creating your own package",
+    "name": "deanhowe/laravel-package-boilerplate",
+    "description": "Starting boilerplate for Laravel packages. Override the content in here when creating your own packages…",
+    "version": "0.0.1",
     "type": "library",
-    "keywords": ["laravel","lumen"],
-    "require-dev": {
-        "infection/infection": "^0.26.19",
-        "matthewbdaly/artisan-standalone": "0.0.*",
-        "mockery/mockery": "^1.5",
-        "orchestra/testbench": "^8.0",
-        "orchestra/testbench-browser-kit": "^8.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "psalm/plugin-laravel": "^2.8",
-        "slevomat/coding-standard": "^8.3",
-        "squizlabs/php_codesniffer": "^3.7",
-        "vimeo/psalm": "^5.8"
-    },
+    "keywords": [
+        "deanhhowe",
+        "laravel",
+        "lumen",
+        "package",
+        "boilerplate",
+        "skeleton",
+        "starter",
+        "starter-kit"
+    ],
+    "homepage": "https://laravel-package-boilerplate.deanhowe.github.io",
+    "readme": "README.md",
+    "time": "YYYY-MM-DD HH:MM:SS",
+    "license-options": [
+        "Apache-2.0",
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause",
+        "GPL-2.0-only / GPL-2.0-or-later",
+        "GPL-3.0-only / GPL-3.0-or-later",
+        "LGPL-2.1-only / LGPL-2.1-or-later",
+        "LGPL-3.0-only / LGPL-3.0-or-later",
+        "MIT"
+    ],
     "license": "MIT",
     "authors": [
+        {
+            "name": "Dean Howe",
+            "email": "deanhowe@gmail.com",
+            "homepage": "https://deanhowe.github.io",
+            "role": "Developer"
+        },
         {
             "name": "Matthew Daly",
             "email": "matthewbdaly@gmail.com"
         }
     ],
+    "support-suggestions": {
+        "email": "Email address for support.",
+        "issues": "URL to the issue tracker.",
+        "forum": "URL to the forum.",
+        "wiki": "URL to the wiki.",
+        "irc": "IRC channel for support, as irc://server/channel.",
+        "source": "URL to browse or download the sources.",
+        "docs": "URL to the documentation.",
+        "rss": "URL to the RSS feed.",
+        "chat": "URL to the chat channel.",
+        "security": "URL to the vulnerability disclosure policy (VDP)."
+    },
+    "support": {
+        "issues": "https://github.com/deanhowe/laravel-package-boilerplate/issues",
+        "forum": "https://github.com/deanhowe/laravel-package-boilerplate/discussions",
+        "wiki": "https://github.com/deanhowe/laravel-package-boilerplate/wiki",
+        "source": "https://github.com/deanhowe/laravel-package-boilerplate/releases",
+        "docs": "https://github.com/deanhowe/laravel-package-boilerplate/wiki/documentation",
+        "rss": "https://github.com/deanhowe/laravel-package-boilerplate/commits.atom",
+        "chat": "https://github.com/deanhowe/laravel-package-boilerplate/discussions",
+        "security": "https://github.com/deanhowe/laravel-package-boilerplate/wiki/security/vdp_policy"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/deanhowe"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-pdo": "*",
+        "laravel/framework": "^10.29",
+        "laravel/legacy-factories": "^1.3"
+    },
+    "require-dev": {
+        "deanhowe/artisan-standalone": "0.0.*",
+        "fakerphp/faker": "^1.23.1",
+        "infection/infection": "^0.27.6",
+        "laravel/dusk": "^7.11",
+        "laravel/horizon": "^5.21",
+        "laravel/pint": "^1.13",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^7.10",
+        "nunomaduro/larastan": "*",
+        "orchestra/testbench": "^8.14",
+        "orchestra/testbench-browser-kit": "^8.4",
+        "orchestra/testbench-dusk": "^8.14",
+        "pestphp/pest": "^2.24",
+        "pestphp/pest-plugin-laravel": "^2.2",
+        "pestphp/pest-plugin-type-coverage": "^2.4",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "psalm/plugin-laravel": "^2.8",
+        "roave/security-advisories": "dev-latest",
+        "slevomat/coding-standard": "^8.14",
+        "spatie/laravel-ignition": "^2.3",
+        "squizlabs/php_codesniffer": "^3.7",
+        "vimeo/psalm": "^5.15"
+    },
+    "conflict": {
+        "phpunit/phpunit": "<10.0.0"
+    },
+    "replace-suggestions": [],
+    "provide-suggestions": [],
+    "suggest": {
+        "ext-simplexml": "We all love 🤣 XML, admit it."
+    },
     "autoload": {
         "psr-4": {
             "Package\\": "src/"
@@ -31,7 +113,63 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories-suggestions": [
+        {
+            "type": "composer",
+            "url": "http://packages.example.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.example.com",
+            "options": {
+                "ssl": {
+                    "verify_peer": "true"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Seldaek/monolog"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "smarty/smarty",
+                "version": "3.1.7",
+                "dist": {
+                    "url": "https://www.smarty.net/files/Smarty-3.1.7.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://smarty-php.googlecode.com/svn/",
+                    "type": "svn",
+                    "reference": "tags/Smarty_3_1_7/distribution/"
+                }
+            }
+        }
+    ],
+    "repositories": {
+        "artisan-standalone": {
+            "type": "vcs",
+            "url": "https://github.com/deanhowe/artisan-standalone.git"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true
         }
     },
     "scripts": {
@@ -45,17 +183,74 @@
             "php -r \"mkdir('storage');\"",
             "php -r \"mkdir('storage'.DIRECTORY_SEPARATOR.'framework');\"",
             "php -r \"mkdir('storage'.DIRECTORY_SEPARATOR.'framework'.DIRECTORY_SEPARATOR.'views');\""
-        ]
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "pestphp/pest-plugin": true,
-            "infection/extension-installer": true
-        }
+        ],
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare",
+            "@dusk:install-chromedriver",
+            "@testbench:clear",
+            "@testbench:prepare",
+            "@duskbench:clear",
+            "@duskbench:prepare",
+            "@duskbench:install-chromedriver"
+        ],
+        "testbench": "@php vendor/bin/testbench",
+        "testbench:build": "@php vendor/bin/testbench workbench:build --ansi",
+        "testbench:create-sqlite": "@php vendor/bin/testbench workbench:create-sqlite-db --ansi",
+        "testbench:clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "testbench:devtool": "@php vendor/bin/testbench workbench:devtool --ansi",
+        "testbench:discover ": "@php vendor/bin/testbench package:discover --ansi",
+        "testbench:drop-sqlite": "@php vendor/bin/testbench workbench:drop-sqlite-db  --ansi",
+        "testbench:install": "@php vendor/bin/testbench workbench:install --ansi",
+        "testbench:prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "testbench:serve": [
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "testbench:test": "@php vendor/bin/testbench package:test --parallel --ansi",
+        "duskbench": "@php vendor/bin/testbench-dusk",
+        "duskbench:build": "@php vendor/bin/testbench-dusk workbench:build --ansi",
+        "duskbench:create-sqlite": "@php vendor/bin/testbench-dusk workbench:create-sqlite-db --ansi",
+        "duskbench:clear": "@php vendor/bin/testbench-dusk package:purge-skeleton --ansi",
+        "duskbench:devtool": "@php vendor/bin/testbench-dusk workbench:devtool --ansi",
+        "duskbench:discover ": "@php vendor/bin/testbench-dusk package:discover --ansi",
+        "duskbench:drop-sqlite": "@php vendor/bin/testbench-dusk workbench:drop-sqlite-db  --ansi",
+        "duskbench:install": "@php vendor/bin/testbench-dusk workbench:install --ansi",
+        "duskbench:install-chromedriver": "@php vendor/bin/dusk-updater detect --auto-update --ansi",
+        "duskbench:prepare": "@php vendor/bin/testbench-dusk package:discover --ansi",
+        "duskbench:serve": [
+            "@build",
+            "@php vendor/bin/testbench-dusk serve --port=8001"
+        ],
+        "duskbench:test": "@php vendor/bin/testbench-dusk package:test --parallel  --ansi",
+        "lint": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse --memory-limit=4G --ansi"
+        ],
+        "dump": [
+            "composer dump-autoload --optimize --classmap-authoritative --strict-psr"
+        ],
+        "pint": [
+            "@php vendor/bin/pint"
+        ],
+        "stan": [
+            "@php vendor/bin/phpstan analyse --memory-limit=4G --ansi"
+        ],
+        "test": [
+            "@php vendor/bin/pest --order-by=default --coverage --min=100 --path-coverage --coverage-filter=./src"
+        ],
+        "types": [
+            "@php vendor/bin/pest --type-coverage"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "dusk:install-chromedriver": "@php vendor/bin/dusk-updater detect --auto-update --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "@build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "nuke": "rm -fr ./vendor ./composer.lock && composer install"
     },
     "extra": {
         "laravel": {

@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" bootstrap="vendor/autoload.php" colors="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
-  <coverage>
-    <include>
-      <directory suffix=".php">./src</directory>
-    </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="Tests">
-      <directory suffix="Test.php">./tests</directory>
-    </testsuite>
-  </testsuites>
-  <php>
-    <env name="APP_ENV" value="testing"/>
-    <env name="CACHE_DRIVER" value="array"/>
-    <env name="SESSION_DRIVER" value="array"/>
-    <env name="QUEUE_DRIVER" value="sync"/>
-    <env name="DB_CONNECTION" value="sqlite"/>
-    <env name="DB_DATABASE" value=":memory:"/>
-  </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.uk/10.0/phpunit.xsd"
+         backupGlobals="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         cacheDirectory=".phpunit.cache"
+         cacheResult="false"
+         backupStaticProperties="false">
+    <testsuites>
+        <testsuite name="Test suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </source>
+    <php>
+        <env name="RAY_ENABLED" value="(true)"/>
+        <env name="SEND_CACHE_TO_RAY" value="(false)"/>
+        <env name="SEND_DUMPS_TO_RAY" value="(true)"/>
+        <env name="SEND_JOBS_TO_RAY" value="(true)"/>
+        <env name="SEND_LOG_CALLS_TO_RAY" value="(true)"/>
+        <env name="SEND_QUERIES_TO_RAY" value="(false)"/>
+        <env name="SEND_REQUESTS_TO_RAY" value="(true)"/>
+        <env name="SEND_VIEWS_TO_RAY" value="(true)"/>
+        <env name="SEND_EXCEPTIONS_TO_RAY" value="(true)"/>
+    </php>
 </phpunit>
