@@ -1,8 +1,11 @@
 # laravel-package-boilerplate
 
+> [!WARNING]
+> This is not quite ready for general consumption - use at your own risk 🤨
+
 Boilerplate for Laravel packages. Use it as a starting point for your own Laravel packages.
 
-Includes Pest & Pint along with PHPUnit and PHPCodeSniffer configurations, a known good Travis CI configuration and a couple of base test cases.
+Includes [Pest](https://pestphp.com/) & [Pint](https://laravel.com/docs/10.x/pint) along with PHPUnit and PHPCodeSniffer configurations, a known good Travis CI configuration and a couple of base test cases.
 We recommend reading the [composer docs](https://getcomposer.org/doc/04-schema.md) for more information about what you might need to add/remove from the `composer.json` file. 
 Included are the most common things you might need, but you may need to add more and you __*will*__ need to remove some (anything with a `*-suggestions` key for a start).
 
