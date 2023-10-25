@@ -22,14 +22,22 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
       run: composer testbench key:generate
-    - name: Install testbench
-      run: composer testbench:install
+    - name: Prepare testbench
+      run: composer testbench:prepare
+    - name: Generate dusk key
+      run: composer duskbench key:generate
+    - name: Prepare duskbench
+      run: composer duskbench:prepare
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
+        touch ./vendor/orchestra/testbench-core/laravel/database/database.sqlite
+    - name: Create Database
+      run: |
+        mkdir -p database
+        touch ./vendor/orchestra/testbench-dusk/laravel/database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
